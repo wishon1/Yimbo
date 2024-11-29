@@ -30,7 +30,7 @@ from yimbo_appli.podcast_model.model import Base, Country, Region, Category, Pod
 from yimbo_appli import my_session
 
 # music method
-from yimbo_appli.music_model.music_model import Genre, Music
+
 
 # playlist 
 from yimbo_appli import Playlist, PlaylistTrack
@@ -87,6 +87,7 @@ oauth.register(
 @app.route('/add_genre', methods=['GET', 'POST'])
 @login_required
 def add_genre():
+    from yimbo_appli import Genre
     if request.method == 'POST':
         new_genre = Genre(name=request.form['genre'])
         my_session.add(new_genre)
@@ -104,6 +105,7 @@ def allowed_file(filename):
 @app.route('/add_music', methods=['GET', 'POST'])
 @login_required
 def add_music():
+    from yimbo_appli import Music
     if request.method == 'POST':
         # Check if the POST request has the file part
         if 'file' not in request.files or 'picture' not in request.files:
@@ -142,6 +144,7 @@ def music():
     """
     route for the music page display all genre of music
     """
+    from yimbo_appli import Genre, Music
     genres = my_session.query(Genre).all()
     our_musics = my_session.query(Music).all()
     return render_template('music_page.html', genres=genres,our_musics=our_musics)
@@ -152,11 +155,13 @@ def player(id):
     """
     display the music player with a specific music
     """
+    from yimbo_appli import Music
     music = my_session.query(Music).filter_by(id=id).first()
     musics = my_session.query(Music).all()
     return render_template('music_player.html', music=music, musics=musics)
 
 def get_song_name(id):
+    from yimbo_appli import Music
     songs = my_session.query(Music).filter_by(id=id).first()
     return songs
 
@@ -164,6 +169,7 @@ def get_genre(id):
     """
     method to get the genre
     """
+    from yimbo_appli import Genre
     genre = my_session.query(Genre).filter_by(id=id).first()
     return genre
 
@@ -173,6 +179,7 @@ def get_music_by_genre(genre_id):
     """
     display list of music of the specified genre
     """
+    from yimbo_appli import Genre, Music
     # Query all music objects with the specified genre_id
     genre = my_session.query(Genre).filter(Genre.id==genre_id).first()
     if genre:
@@ -213,6 +220,7 @@ def playlist_details(playlist_id):
 @app.route('/playlist/create', methods=['GET', 'POST'])
 @login_required
 def create_playlist():
+    from yimbo_appli import Music
     songs = my_session.query(Music).all()
     
     genres = []

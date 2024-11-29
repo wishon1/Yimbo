@@ -15,6 +15,7 @@ from sqlalchemy.orm import sessionmaker
 # Connection to the database
 from yimbo_appli.podcast_model.model import Base
 from yimbo_appli.playlist_model.playlist_model import Playlist, PlaylistTrack
+from yimbo_appli.music_model.music_model import Genre, Music
 
 engine = create_engine('mysql+mysqldb://root:password@localhost:3306/podcast_radio_database')
 
