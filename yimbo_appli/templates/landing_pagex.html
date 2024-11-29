@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="UTF-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    	<title>Yimbo connecting Africa through rhythm</title>
+    	<link rel="stylesheet" href="{{ url_for('static', filename='/landing_page.css') }}">
+    	<style>
+        	/* Additional CSS for the search box */
+        	#search-box {
+            	text-align: center;
+            	margin-top: 200px; /* Adjust as needed */
+        	}
+        	#search-box input[type="text"] {
+            	padding: 10px;
+            	width: 300px; /* Adjust as needed */
+            	border-radius: 5px;
+            	border: 1px solid #ccc;
+        	}
+        	#search-box button {
+            	padding: 10px 20px;
+            	background-color:  #ccc;
+            	color: #fff;
+            	border: none;
+            	border-radius: 5px;
+            	cursor: pointer;
+        	}
+    	</style>
+	</head>
+	<body>
+    	<nav id="navbar">
+        	<ul id="nav-list">
+            	<li><a href="{{ url_for('music') }}">Music</a></li>
+            	<li><a href="{{ url_for('podcast_test') }}">Podcast</a></li>
+            	<li><a href="">Radio</a></li>
+            	{% if current_user.is_authenticated %}
+					<li class="signs">
+						<a href={{ url_for('logout') }}>Logout</a>
+            			<a href={{ url_for('account') }}>Account</a>
+          			</li>
+
+				{% else %}
+					<li class="signs">
+						<!--<button type="submit">Sign-in</button>-->
+						<a href={{ url_for('login') }}>Sign-in</a>
+					</li>
+					<li class="signs">
+						<!--<button type="submit">Sign-up as Artist</button>-->
+						<a href={{ url_for('register') }}>Sign-up</a>
+						
+					</li>
+				{% endif %}
+        	</ul>
+    	</nav>
+    	<section id="welcome-section" class="welcome-section">
+        	<h1>Yimbo</h1>
+        	<p><i>connecting Africa through Rhythms</i></p>
+        	<!-- Search Box -->
+        	<div id="search-box">
+            	<input class="searchInput" type="text" placeholder="Search..." />
+            	<button class="searchInput" type="submit">Search</button>
+        	</div>
+		
+        	<!-- End of Search Box -->
+        	<li></li>
+    	</section>
+
+		<section class="display_artist">
+        	<!-- Artist section -->
+        	<h3>Trendin Artists </h3>
+        	<div class="artist-card">
+            	<img src="https://yt3.googleusercontent.com/P6SjTt-BXjTWeUcpBX-dDUcLhpCboucwr6PN0cpvR3Z7BNq7V0-CmUbVPjGbWyB33ZaO9APa=s176-c-k-c0x00ffffff-no-rj" alt="Burna Boy" style="width:150px; height:150px; border-radius:50%;">
+            	<div class="artist-info">
+                	<div class="artist-name">Burna Boy</div>
+                	<div class="artist-title">Artist</div>
+            	</div>
+        	</div>
+
+        	<div class="artist-card">
+            	<img src="https://cdn.24.co.za/files/Cms/General/d/10415/0ab41fdd650e4a17803a4e3ba56b3d79.jpg"alt="Die Antwoord" style="width:150px; height:150px; border-radius:50%;">
+            	<div class="artist-info">
+                	<div class="artist-name">Die Antwoord</div>
+                	<div class="artist-title">Artist</div>
+            	</div>
+        	</div>
+
+        	<div class="artist-card">
+            	<img src="https://e-cdn-images.dzcdn.net/images/artist/0a5d34bab78b51067698dd51767154aa/500x500-000000-80-0-0.jpg" alt="Wizkid" style="width:150px; height:150px; border-radius:50%;">
+            	<div class="artist-info">
+                	<div class="artist-name">Wizkid</div>
+                	<div class="artist-title">Artist</div>
+            	</div>
+        	</div>
+
+        	<div class="artist-card">
+            	<img src="https://yop.l-frii.com/wp-content/uploads/2023/04/Davido-en-couple-avec-Chioma-le-chanteur-met-enceinte-son-ex-1024x683.jpg" alt="Davido" style="width:150px; height:150px; border-radius:50%;">
+            	<div class="artist-info">
+                	<div class="artist-name">Davido</div>
+                	<div class="artist-title">Artist</div>
+            	</div>
+        	</div>
+        
+        	<div class="artist-card">
+            	<img src="https://i.scdn.co/image/ab676161000051747952358e33599027ae3c7f37" alt="Rema" style="width:150px; height:150px; border-radius:50%;">
+            	<div class="artist-info">
+                	<div class="artist-name">Rema</div>
+                	<div class="artist-title">Artist</div>
+            	</div>
+        	</div>
+    	</div>
+
+    	
+		<section id="display_content" class="display_content">
+
+			
+			<!--Trending Musics -->
+			<h3>Featured Podcasts</h3>
+			<div class="browse-all">
+				<!-- Category Card -->
+	<!--			<h3 style="display:inlin-block; font:san-serif;">Trending musics</h3> -->
+				<div class="category-card">
+					<img src="https://i.scdn.co/image/ab6765630000ba8a81f07e1ead0317ee3c285bfa" alt="Podcasts">
+					<div class="category-title">Podcasts</div>
+				</div>
+	
+				<div class="category-card">
+				  <img src="https://i.scdn.co/image/ab67fb8200005cafa6152f62518b4c3251858b21" alt="Podcasts">
+				  <div class="category-title">Audiobooks</div>
+				</div>
+	
+				<div class="category-card">
+				  <img src="https://concerts.spotifycdn.com/images/live-events_category-image.jpg" alt="Podcasts">
+				  <div class="category-title">Live Events</div>
+				</div>
+	
+				<div class="category-card">
+				  <img src="https://t.scdn.co/images/ea364e99656e46a096ea1df50f581efe" alt="Podcasts">
+				  <div class="category-title">Made For You</div>
+				</div>
+	
+				<div class="category-card">
+					<img src="https://i.scdn.co/image/ab6765630000ba8a81f07e1ead0317ee3c285bfa" alt="Podcasts">
+					<div class="category-title">Podcasts</div>
+				</div>
+	
+	
+			</div>
+			
+			<h3>Trending Musics</h3>
+			<div class="browse-all">
+				<!-- Category Card -->
+				<div class="category-card">
+					<img src="https://i.scdn.co/image/ab67fb8200008e2cea38d17f2e1a1630287f4328" alt="Podcasts">
+					<div class="category-title">2023 in podcasts</div>
+				</div>
+	
+				<div class="category-card">
+				  <img src="https://i.scdn.co/image/ab6761700000c52c87ab6b4a0c51593853fe2157" alt="Podcasts">
+				  <div class="category-title">Merch</div>
+				</div>
+	
+				<div class="category-card">
+				  <img src="https://i.scdn.co/image/ab67fb8200008e2c64adf130003faa51378e3d2b" alt="Podcasts">
+				  <div class="category-title">Happy Christmas</div>
+				</div>
+	
+				 <div class="category-card">
+				  <img src="https://i.scdn.co/image/9af79fd06e34dea3cd27c4e1cd6ec7343ce20af4" alt="Podcasts">
+				  <div class="category-title">Video Podcasts</div>
+				</div>
+	
+				<div class="category-card">
+					<img src="https://i.scdn.co/image/ab6765630000ba8a81f07e1ead0317ee3c285bfa" alt="Podcasts">
+					<div class="category-title">Podcasts</div>
+				</div>
+	
+	
+				<!-- Repeat for each category -->
+				<!-- ... other categories ... -->
+			</div>
+	
+			<h3>Trending Radio Channels</h3>
+			<div class="browse-all">
+				<!-- Category Card -->
+				<div class="category-card">
+					<img src="https://t.scdn.co/images/7262179db37c498480ef06bfacb60310.jpeg" alt="Podcasts">
+					<div class="category-title">Podcast Charts</div>
+				</div>
+	
+				<div class="category-card">
+				  <img src="https://t.scdn.co/images/209c867f5bb34076b0dcc9deeb1868e6" alt="Podcasts">
+				  <div class="category-title">Podcast New Releases</div>
+				</div>
+	
+				<div class="category-card">
+				  <img src="https://i.scdn.co/image/9af79fd06e34dea3cd27c4e1cd6ec7343ce20af4" alt="Podcasts">
+				  <div class="category-title">Video Podcasts</div>
+				</div>
+	
+				<div class="category-card">
+					<img src="https://i.scdn.co/image/9af79fd06e34dea3cd27c4e1cd6ec7343ce20af4" alt="Podcasts">
+					<div class="category-title">Video Podcasts</div>
+				</div>
+	
+				<div class="category-card">
+					<img src="https://i.scdn.co/image/ab6765630000ba8a81f07e1ead0317ee3c285bfa" alt="Podcasts">
+					<div class="category-title">Podcasts</div>
+				</div>
+	
+	
+			</div>
+			
+			
+		</section>
+	
+		<section id="contact" class="contact">
+			<div id="contact-header">
+				<h2>Let's work together</h2>
+				<p id="contact-p"><i>How do you take your coffee</i></p>
+			</div>
+			<div id="contact-links">
+				<a href="" id="profile-link" target="blank">Githubi</a>
+			</div>
+		</section>
+
+	</body>
+</html>

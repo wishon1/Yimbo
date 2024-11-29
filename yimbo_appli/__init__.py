@@ -14,6 +14,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 # Connection to the database
 from yimbo_appli.podcast_model.model import Base
+from yimbo_appli.playlist_model.playlist_model import Playlist, PlaylistTrack
 
 engine = create_engine('mysql+mysqldb://root:password@localhost:3306/podcast_radio_database')
 
@@ -24,7 +25,7 @@ my_session = Session()
 # load the .env file that content secret information
 load_dotenv()
 #UPLOAD_FOLDER = 'yimbo_appli/static/music'
-UPLOAD_FOLDER = '/home/elpastore/ALX-program/portifolio_project/Yimbo/yimbo_appli/static/music'
+UPLOAD_FOLDER = '/home/pc/Yimbo/yimbo_appli/static/music'
 ALLOWED_EXTENSIONS = {'mp3', 'wav', 'mp4', 'png', 'jpg', 'jpeg'}
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

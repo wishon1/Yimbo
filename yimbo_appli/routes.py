@@ -33,7 +33,7 @@ from yimbo_appli import my_session
 from yimbo_appli.music_model.music_model import Genre, Music
 
 # playlist 
-from yimbo_appli.playlist_model import Playlist, PlaylistTrack
+from yimbo_appli import Playlist, PlaylistTrack
 # user method
 #from yimbo_appli.user_model.user_model import User
 
@@ -259,10 +259,10 @@ def home():
     """This method defins the route to handle all radio streamings"""
     radio_country= "South Africa"
     podcast_country = "Kenya"
-    podcast_kenya = podcast_method.display_sixpodcast(podcast_country)
-    radio_sa = radio_method.display_sixradio(radio_country)
-    return render_template("landing_page.html", podcast_kenya=podcast_kenya,
-                           radio_sa=radio_sa)
+   # podcast_kenya = podcast_method.display_sixpodcast(podcast_country)
+    #radio_sa = radio_method.display_sixradio(radio_country)
+    return render_template("landing_page.html") #podcast_kenya=podcast_kenya,
+                           #radio_sa=radio_sa)
 
 # search functionality
 @app.route('/search', methods=["GET", "POST"])
